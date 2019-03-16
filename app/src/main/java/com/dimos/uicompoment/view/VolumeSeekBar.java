@@ -46,7 +46,7 @@ public class VolumeSeekBar extends SeekBar {
                 if (progress < 0 || progress > 100) {
                     return;
                 }
-                mAudioManager.setStreamVolume(MEDIA_TYPE, (int) (progress / 100.0 * mMaxVolume), 0);
+                mAudioManager.setStreamVolume(MEDIA_TYPE, (int) Math.ceil(progress / 100.0 * mMaxVolume), 0);
             }
 
             @Override
