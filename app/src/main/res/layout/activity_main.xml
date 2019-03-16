@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <com.dimos.uicompoment.view.VolumeSeekBar
-            style="@android:style/Widget.Material.SeekBar"
+            style="@style/VolumeProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
