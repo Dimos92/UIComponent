@@ -10,6 +10,9 @@ import android.widget.SeekBar;
 
 import java.lang.ref.WeakReference;
 
+/**
+ * 跟随系统音量的SeekBar
+ */
 public class VolumeSeekBar extends SeekBar {
 
     private static final String VOLUME_CHANGED_ACTION = "android.media.VOLUME_CHANGED_ACTION";
@@ -95,27 +98,25 @@ public class VolumeSeekBar extends SeekBar {
         private VolumeBroadcastReceiver mVolumeBroadcastReceiver;
         private boolean mRegistered = false;
 
-        public VolumeChangeObserver() {
+        VolumeChangeObserver() {
         }
 
-        public int getCurrentMusicVolume() {
+        int getCurrentMusicVolume() {
             return mAudioManager != null ? mAudioManager.getStreamVolume(MEDIA_TYPE) : -1;
         }
 
-        public VolumeChangeListener getVolumeChangeListener() {
+        VolumeChangeListener getVolumeChangeListener() {
             return mVolumeChangeListener;
         }
 
-        public void setVolumeChangeListener(VolumeChangeListener volumeChangeListener) {
+        void setVolumeChangeListener(VolumeChangeListener volumeChangeListener) {
             this.mVolumeChangeListener = volumeChangeListener;
         }
 
         /**
          * 注册音量广播接收器
-         *
-         * @return
          */
-        public void registerReceiver() {
+        void registerReceiver() {
             mVolumeBroadcastReceiver = new VolumeBroadcastReceiver(this);
             IntentFilter filter = new IntentFilter();
             filter.addAction(VOLUME_CHANGED_ACTION);
@@ -126,7 +127,7 @@ public class VolumeSeekBar extends SeekBar {
         /**
          * 解注册音量广播监听器，需要与 registerReceiver 成对使用
          */
-        public void unregisterReceiver() {
+        void unregisterReceiver() {
             if (mRegistered) {
                 try {
                     mContext.unregisterReceiver(mVolumeBroadcastReceiver);
