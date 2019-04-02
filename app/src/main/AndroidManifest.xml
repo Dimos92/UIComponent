@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.dimos.uicompoment">
 
+    <!--
+        application配置
+        # 禁止分屏
+        android:resizeableActivity="false"
+
+    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,11 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <!--activity属性配置
+        <!--activity配置
             # 禁止旋转
             android:screenOrientation="portrait"
-            # 禁止分屏
-            android:resizeableActivity="false"
 
         -->
 
